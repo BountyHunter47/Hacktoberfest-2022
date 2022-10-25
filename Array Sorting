@@ -1,0 +1,58 @@
+package studydsa;
+
+public class ArraySorting {
+    public static void main(String[] args) {
+        int[] nums = {3,5,2,6,3,2,2,1};
+//        bubbleSort(nums);
+//        selectionSort(nums);
+        insertionSort(nums);
+        printArray(nums);
+    }
+
+    private static void insertionSort(int[] nums) {
+        System.out.println("InsertionSort");
+        for (int i = 1; i < nums.length; i++) {
+            int j = i-1;
+            int temp = nums[i];
+            while (j >= 0 &&  nums[j] > temp){
+                nums[j+1] = nums[j];
+                j--;
+            }
+            nums[j+1] = temp;
+        }
+    }
+
+    private static void selectionSort(int[] nums) {
+        System.out.println("SelectionSort");
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = i+1; j < nums.length; j++) {
+                if (nums[j] < nums[i]){
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        }
+    }
+
+    private static void bubbleSort(int[] nums) {
+        System.out.println("BubbleSort");
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = i+1; j < nums.length; j++) {
+                if (nums[i] > nums[j] ){
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        }
+    }
+
+    private static void printArray(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i]);
+            System.out.print(" ");
+        }
+    }
+
+}
